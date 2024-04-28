@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mx Player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        background-color: #121212;
+        color: white;
+      }
+      #nav {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: black;
+        color: white;
+        padding-top: 20px;
+        box-sizing: border-box;
+        position: sticky;
+        top: 0px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 5px, rgba(0, 0, 0, 0.3) 0px 10px;
+
+        box-sizing: border-box;
+        padding-left: 60px;
+        padding-right: 60px;
+        z-index: 39;
+      }
+      #nav :nth-child(1) {
+        height: 95%;
+        width: 15%;
+      }
+      #nav :nth-child(1) > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      #nav :nth-child(2) {
+        font-size: large;
+        color: rgb(15, 104, 238);
+      }
+      #nav :nth-child(5) > i {
+        font-size: large;
+        color: rgb(238, 141, 15);
+      }
+      #nav :nth-child(7) {
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: 17px;
+      }
+      #nav :nth-child(8) {
+        position: relative;
+        left: 20px;
+      }
+
+      #nav :nth-child(9) {
+        width: 12%;
+        border: 2px solid rgba(218, 165, 32, 0.39);
+        background-color: rgba(218, 165, 32, 0.174);
+        border-radius: 15px;
+        font-size: xx-small;
+        padding: 5px;
+      }
+      #nav :nth-child(9) > i {
+        color: goldenrod;
+        font-size: 14px;
+      }
+      #nav :nth-child(10) {
+        font-size: large;
+      }
+
+      /* video section */
+
+      #video-container {
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 89vh;
+        margin: auto;
+        background-color: black;
+      }
+      #video {
+        width: 99.9%;
+        height: 100%;
+        border-radius: 15px;
+        border-right: 1px solid rgb(0, 0, 0);
+        border-left: 1px solid rgb(0, 0, 0);
+        /* margin-left: 23px; */
+        border-bottom: 1px, solid, blue, white;
+        object-fit: cover;
+      }
+
+      #video-cont {
+        height: 390px;
+        width: 330px;
+        /* border: 2px solid red; */
+        position: absolute;
+        bottom: 60px;
+        left: 0px;
+        /* background-color: aliceblue; */
+        /* display: grid; */
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        padding-left: 20px;
+      }
+      #video-cont :nth-child(1) {
+        width: 90%;
+        height: 30%;
+        background-color: rgba(168, 21, 21, 0);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #video-cont :nth-child(1) > h1 {
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+        position: relative;
+        right: 30px;
+        top: 129px;
+        font-size: 40px;
+        font-weight: bold;
+        font-style: italic;
+        filter: drop-shadow(0 1px 4px rgb(255, 255, 255) );
+      
+      }
+      #video-cont :nth-child(2) {
+        width: 100%;
+        height: 40%;
+        background: rgba(39, 178, 41, 0);
+        text-align: center;
+        position: relative;
+        top: 30px;
+        right: 5px;
+      }
+      #video-cont :nth-child(2) > h4 {
+        position: relative;
+        top: 44px;
+        /* color: blue; */
+        right: 26px;
+        background: linear-gradient(90deg, blue,blue, red);
+        background-clip: text;
+        color: transparent;
+      }
+
+      #video-cont :nth-child(2) > p {
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      #video-cont :nth-child(3) {
+        /* width: 100%; */
+        height: 30%;
+        background: rgba(8, 111, 61, 0.605);
+        display: flex;
+      }
+
+      #btn {
+        height: 80px;
+        width: 86%;
+
+        /* border: 1px solid red; */
+        position: absolute;
+        top: 470px;
+        left: 33px;
+        color: white;
+        display: flex;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      #btn1 {
+        background: linear-gradient(
+          120deg,
+          rgb(75, 186, 214),
+          rgb(32, 122, 196),
+          rgb(55, 55, 241)
+        );
+        height: 70%;
+        width: 110px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      #btn1 h2 {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      #btn1 i {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: large;
+      }
+
+      #btn2 {
+        width: 130px;
+        height: 70%;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.215);
+        color: white;
+        border: none;
+        margin-left: 20px;
+      }
+
+      #btn3 {
+        width: 150px;
+        height: 70%;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0);
+        color: white;
+        border: none;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      #btn3 i {
+        background-color: rgba(255, 255, 255, 0.779);
+        color: black;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: large;
+      }
+      #btn3 h3 {
+        background-color: rgba(255, 255, 255, 0);
+      }
+
+      #btn4 {
+        width: 30px;
+        height: 50%;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.315);
+        color: white;
+        border: none;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        left: 590px;
+        top: 10px;
+      }
+      #btn4 i {
+        background-color: rgba(255, 0, 0, 0);
+        color: white;
+      }
+
+      #trnd {
+        margin-left: 40px;
+        color: #cccccc;
+      }
+
+      /* main section */
+
+      #main1 {
+        height: 260px;
+        width: 97%;
+        /* border: 1px solid red; */
+        margin-left: 32px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        gap: 10px;
+      }
+      #main1 > div {
+        /* border: 2px solid pink; */
+        border-radius: 8px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+          rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        cursor: pointer;
+     
+            transition: all 0.4s ease-in-out;
+            transition-delay: 1s;
+
+       
+
+      }
+      #main1>div:hover{
+        transform: scale(1.8,1.2);
+        /* transform: scaleY(0.1); */
+        box-shadow: 0 1px 3px rgb(6, 159, 206);
+}
+
+
+      #imgg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      #main2 {
+        height: 226px;
+        width: 97%;
+        /* border: 1px solid red; */
+        margin-left: 32px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        gap: 10px;
+      }
+      #main2 > div {
+        /* border: 2px solid pink; */
+        cursor: pointer;
+      }
+
+      /* footer */
+
+      #foot1 {
+        height: 130px;
+        width: 100%;
+        /* border: 1px solid red; */
+        /* margin-left: 32px; */
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 100%;
+        padding-top: 10px;
+        padding-left: 60px;
+        padding-right: 60px;
+
+        box-sizing: border-box;
+        gap: 20px;
+      }
+      #foot1 > div {
+        /* border: 1px solid pink; */
+      }
+
+      #paa {
+        margin-bottom: 10px;
+        color: #cccccc;
+      }
+
+      #paaa {
+        color: #aaaaaa;
+      }
+
+      #foot2 {
+        height: 120px;
+        width: 100%;
+        /* border: 1px solid red; */
+        /* margin-left: 32px; */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100%;
+        padding-top: 10px;
+        padding-left: 60px;
+        padding-right: 60px;
+
+        box-sizing: border-box;
+        gap: 20px;
+      }
+      #foot2 > div {
+        /* border: 1px solid pink; */
+      }
+
+      #foot3 {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 193, 252, 0) -11%,
+          rgba(9, 46, 74, 0.96) 100%
+        );
+        height: 250px;
+        width: 100%;
+        /* border: 1px solid red; */
+        display: grid;
+        grid-template-columns: 40% 10% 10% 40%;
+        grid-template-rows: 180px 36px;
+        padding-top: 40px;
+        padding-left: 60px;
+        padding-right: 60px;
+
+        box-sizing: border-box;
+        gap: 20px;
+
+        grid-template-areas: 
+            "ld lis1 lis2 lis3"
+            "lis4 lis4 lis4 lis4";
+            object-fit: cover;
+            
+      }
+      #foot3 > div {
+        /* border: 1px solid pink; */
+      }
+
+      #logo {
+        height: 16%;
+        width: 100%;
+        background-color: rgba(255, 192, 203, 0);
+        display: flex;
+        grid-area: lg;
+        
+      }
+
+#logo i{
+  font-size: x-large;
+  background-color: rgb(0, 105, 211);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  
+
+}
+#logo i:hover{
+  font-size: large;
+}
+
+#logo h2{
+  margin-top: 5px;
+  margin-left: 1px;
+  background-color: #aaaaaa00;
+}
+#logo h1{
+ 
+  background-color: #aaaaaa00;
+}
+
+
+      #text {
+        height: 40%;
+        width: 80%;
+        background-color: rgba(238, 141, 15, 0);
+        margin-top: 18px;
+      }
+      #text p {
+        font-size: smaller;
+        background-color: #12121200;
+      }
+
+
+      #icons {
+        height: 30%;
+        width: 100%;
+        background-color: rgba(234, 91, 51, 0);
+        margin-top: 20px;
+        position: relative;
+        bottom: 40px;
+        transition-property: all;
+
+        transition-duration: 0.5s;
+        transition-timing-function: ease;
+        
+      }
+      #icons i ,h5{
+        background-color: #aaaaaa00;
+      }
+       i:hover{
+        font-size: large;
+      }
+      i{
+        cursor: pointer;
+      }
+      ul:hover{
+        color: blue;
+      }
+      a:hover{
+        color: rgb(0, 106, 255);
+        cursor: pointer;
+      }
+
+      #imgg2 {
+        width: 40%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      #main3 {
+        height: 500px;
+      }
+
+#icc{
+  font-size: x-large;
+  margin-left: 20px;
+}
+#icons h5{
+  color: #cccccc;
+}
+#logo-div{
+  background-color: rgba(255, 192, 203, 0);
+}
+.liss { 
+  background-color: rgba(0, 255, 255, 0);
+}
+
+.liss li{ 
+  list-style: none;
+  margin-top: 10px;
+  font-size: smaller;
+  color: #ffffff;
+  background-color: #12121200;
+
+}
+.liss ul,h3,i{
+  background-color: #cccccc00;
+
+}
+.liss i:hover{
+  font-size: larger;
+}
+
+#brands i{
+  margin-left: 10px;
+  color: #aaaaaa;
+  font-size: large;
+  
+}
+
+logo-div{
+  grid-area: ld;
+
+}
+#lis1{
+  grid-area: lis1;
+
+}
+#lis2{
+  grid-area: lis2;
+
+
+}
+#lis3{
+  grid-area: lis3;
+
+}
+#lis4{
+  grid-area: lis4;
+  background-color: #aaaaaa00;
+  position: relative;
+  bottom: 30px;
+  border-top: 0.1px solid #aaaaaaab;
+  display: flex;
+  /* align-items: center; */
+  padding-top: 15px;
+
+
+}
+#lis4 p{
+  font-size: small;
+  background-color: #aaaaaa00;
+
+}
+ 
+#lis4-child{
+  display: flex;
+  /* justify-content: space-around; */
+  position: relative;
+  left: 400px;
+  width: 37%;
+  background-color: #aaaaaa00;
+}
+
+
+#lis4-child p {
+  margin-left: 30px;
+}
+#lis4-child h5 {
+  margin-left: 30px;
+  position: relative;
+  left: 27px;
+}
+#lis4-child i{
+  font-size: large;
+  margin-right:3px;
+}
+#color{
+  color: rgb(19, 121, 237);
+}
+
+button{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+  color: white;
+  background-color: #aaaaaa00;
+}
+
+
+#menu{
+            list-style: none;
+            position: absolute;
+            padding: 10px;
+            width: 90px;
+            display: none;
+            top: 65px;
+            left: 290px;
+            border: 1px solid rgb(101, 96, 96);
+            background-color: #12121253;
+            border-radius: 10px;
+        }
+
+        #menu li{
+            background-color:rgba(0, 0, 0, 0);
+            /* margin-top: 5px; */
+            padding: 5px 10px;
+            font-size: 20px;
+        }
+
+        .list-hvr :hover #menu{
+
+          
+            display: block;
+            /* height: 600px; */
+          
+
+
+        }
+        #expnd{
+          color: rgb(19, 121, 237);
+          /* margin-right: 300px; */
+          position: relative;
+          right: 250px;
+          background-color: #12121200;
+        }
+
+        #expnd i{
+          color: rgb(19, 121, 237);
+
+        }
+        #expnd2 i{
+          color: rgb(19, 121, 237);
+
+        }
+
+
+
+        #expnd2{
+          color: rgb(19, 121, 237);
+          /* margin-right: 300px; */
+          position: relative;
+          right: 442px;
+          top: 40px;
+          background-color: #12121200;
+        }
+
+#paaa:hover{
+  color: rgb(19, 121, 237);
+  cursor: pointer;
+
+}
+
+ul>li:hover{
+  color: rgb(19, 121, 237);
+  cursor: pointer;
+}
+
+#view-all{
+  position: relative;
+  left: 320px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all1{
+  position: relative;
+  left: 260px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all2{
+  position: relative;
+  left: 320px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all3{
+  position: relative;
+  left: 300px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all5{
+  position: relative;
+  left: 200px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all6{
+  position: relative;
+  left: 318px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all7{
+  position: relative;
+  left: 210px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all8{
+  position: relative;
+  left: 270px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all9{
+  position: relative;
+  left: 220px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all10{
+  position: relative;
+  left: 260px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all11{
+  position: relative;
+  left: 270px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all12{
+  position: relative;
+  left: 200px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+
+#view-all13{
+  position: relative;
+  left: 340px;
+  bottom: 23px;
+  background-color: #12121200;
+  font-size: 16px;
+  display: inline;
+  color: rgb(19, 121, 237);
+}
+.va i{
+  color: rgb(19, 121, 237);
+}
+
+
+@media all and (min-width:80px) and (max-width:1018px){
+  #nav :nth-child(5){
+    display: none;
+  }
+  #nav :nth-child(6){
+    display: none;
+  }
+  #nav :nth-child(7){
+    display: none;
+  }
+  #nav :nth-child(9){
+    display: none;
+  }
+  #nav :nth-child(1){
+    width: 140px;
+  }
+  #btn4{
+    display: none;
+  }
+  #lis4-child{
+    display: none;
+  }
+  #lis1{
+    /* display: none;; */
+font-size: smaller;
+
+  }
+  #lis2{
+    /* display: none; */
+font-size: smaller;
+
+
+  }
+  #lis3{
+font-size: smaller;
+
+  }
+  #logo-div{
+font-size: smaller;
+
+  }
+
+  #icons i{
+font-size: small;
+
+  }
+
+ 
+
+
+}
+@media all and (min-width:80px) and (max-width:658px){
+
+  #nav :nth-child(8){
+    display: none;
+  }
+  #nav :nth-child(10){
+    display: none;
+  }
+
+}
+
+             
+
+
+
+
+@media all and (min-width:80px) and (max-width:874px){
+             
+             #main1{
+                 grid-template-columns: repeat(4, 1fr);
+
+                
+             }
+             #main1 :nth-child(5){
+              display: none;
+             }
+             #main1 :nth-child(6){
+              display: none;
+
+             }
+             #main1 :nth-child(7){
+              display: none;
+
+             }
+
+             #foot1 :nth-child(3){
+              display: none;
+             }
+             #foot1 :nth-child(4){
+              display: none;
+
+             }
+             #foot1 :nth-child(5){
+              display: none;
+
+             }
+#foot1{
+  grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100%;
+}
+
+#foot2{
+  font-size: smaller;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: 80px;
+}
+#foot2 :nth-child(3){
+  display: none;
+
+}
+#foot3{
+
+  grid-template-areas: 
+            "ld ld ld ld"
+            "lis1 lis1 lis2 lis2"
+            "lis4 lis4 lis4 lis4";
+
+            grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 250px 180px 30px;
+height: 470px;
+gap: 0px;
+}
+#foot3 :nth-child(4){
+display: none;
+}
+#foot3 :nth-child(1){
+  /* width: 70%; */
+  /* height: 40px; */
+}
+#foot3 :nth-child(2){
+  justify-content: start;
+
+}#foot3 :nth-child(3){
+  justify-content: start;
+/
+}
+#lis4 p{
+  font-size: xx-small;
+}
+
+#main1{
+  margin-left : 5px;
+  
+}
+#trnd{
+  margin-left :19px;
+}
+#main2{
+  margin : 0px;
+  
+}
+
+
+
+#icons {
+  /* font-size: xx-small; */
+  width: 190%;
+}
+
+
+ 
+  }
+
+
+         
+@media all and (min-width:80px) and (max-width:546px){
+
+#nav :nth-child(3){
+  display: none;
+}
+
+#nav :nth-child(4){
+  display: none;
+}
+
+#foot2{
+  font-size: x-small;
+  height: 140px;
+  
+}
+#lis4 p{
+  font-size: 5px;
+}
+
+
+#main1 :nth-child(4){
+  display: none;
+}
+
+#main1{
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+#main2 :nth-child(4){
+  display: none;
+}
+#main1>div{
+
+
+}
+#foot3{
+  /* height: 600px; */
+
+}
+#foot4 p{
+  font-size: xx-small;
+}
+
+
+
+
+}
+
+@media all and (min-width:80px) and (max-width:530px){
+  #foot3{
+    grid-template-rows: 330px 180px 30px;
+    grid-template-columns: repeat(2,1fr);
+    height: 560px;
+
+
+}
+#foot1{
+  font-size: small;
+}
+
+#lis4 p{
+font-size: xx-small;
+}
+
+
+
+}
+@media all and (min-width:750px) and (max-width:850px){
+
+
+
+  #btn{
+    position: relative;
+    top: 10px;
+  }
+}
+@media all and (min-width:429px) and (max-width:431px){
+  #btn{
+    position: relative;
+    top: 10px;
+  }
+}
+
+@media all and (min-width:359px) and (max-width:361px){
+#op {
+  position: relative;
+  bottom: 50px;
+
+}
+#btn{
+  position: relative;
+  top: -120px;
+  font-size: smaller;
+  height: 50px;
+}
+#nav{
+  display: flex;
+  justify-content: space-between;
+  padding-left:20px ;
+  padding-right: 20px;
+}
+}
+
+@media all and (min-width:1023px) and (max-width:1024px){
+  #btn{
+    position: relative;
+    top: 10px;
+    
+  }
+
+}
+
+
+
+
+
+
+
+@media all and (min-width:80px) and (max-width:428px){
+
+  #main1{
+  grid-template-columns: repeat(2, 1fr);
+  }
+    #main1 :nth-child(3){
+  display: none;
+}
+#icons {
+  /* font-size: xx-small; */
+  width: 190%;
+}
+
+
+#nav :nth-child(11){
+  display: none;
+}
+#nav :nth-child(12){
+  display: none;
+}
+#lori{
+  display: none;
+}
+
+#video-container{
+  height: 510px;
+}
+
+#trnd{
+  font-size: smaller;
+}
+
+.va{
+  display: none;
+}
+
+#lis3{
+  display: block;
+}
+#view-all{
+  display: none;
+  position: relative;
+  /* right: 400px; */
+}
+#view-all3{
+  display: none;
+} 
+#view-all3{
+  display: none;
+} #view-all5{
+  display: none;
+} #view-all6{
+  display: none;
+} #view-all7{
+  display: none;
+} #view-all8{
+  display: none;
+} #view-all9{
+  display: none;
+} #view-all10{
+  display: none;
+} #view-all11{
+  display: none;
+} #view-all12{
+  display: none;
+} #view-all13{
+  display: none;
+} 
+#view-all1{
+  display: none;
+} 
+#view-all2{
+  display: none;
+} 
+#nav{
+  display: flex;
+  justify-content: space-between;
+  padding-left:20px ;
+  padding-right: 20px;
+}
+
+
+
+}
+
+
+
+
+@media all and (min-width:1200px) and (max-width:1846px){
+  #btn{
+
+    position: relative;
+    top:-60px;
+    /* position: absolute; */
+    /* top: 470px; */
+    
+  }
+}
+
+@media all and (min-width:432px) and (max-width:1200px){
+  #btn{
+
+    position: relative;
+    top:-60px;
+    /* position: absolute; */
+    /* top: 470px; */
+    
+  }
+}
+@media all and (min-width:200px) and (max-width:429px){
+  #op {
+    /* position: relative; */
+    position: absolute;
+    top: -80px;
+  }
+}
+
+@media all and (min-width:373px) and (max-width:376px){
+  #op{
+    position: absolute;
+    top: 40px;
+  }
+}
+
+@media all and (min-width:413px) and (max-width:415px){
+  #op{
+    position: absolute;
+    top: -190px;
+  }
+
+}
+
+@media all and (min-width:390px) and (max-width:390px){
+  
+   #op{
+    position: absolute;
+    top: -140px;
+   }
+  
+
+}
+
+@media all and (min-width:412px) and (max-width:412px){
+  
+  #op{
+   position: absolute;
+   top: -200px;
+  }
+ 
+
+}
+
+@media all and (min-width:1024px) and (max-width:1024px){
+  #btn{
+    width: 36%;
+  }
+  #lis4{
+    width: 100%;
+    font-size: 5px;
+  }
+  #lis4-child{
+    position: absolute;
+    left: 600px;
+    font-size: xx-small;
+  }
+
+  #foot3{
+    height: 270px;
+  }
+}
+@media all and (min-width:912px) and (max-width:912px){
+
+  #oph{
+    display: none;  }
+}
+@media all and (min-width:1847px) and (max-width:1978px){
+  #btn{
+
+position: absolute;
+top:880px;
+
+
+}
+#btn4{
+  display: none;
+}
+}
+
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.772);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2449cf;
+  /* background-color:  */
+  border-radius: 10px;
+  /* height: 10px; */
+}
+
+
+
+.opp{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+    <div id="nav">
+      <div><img src="img/Screenshot 2024-03-15 233354.png" /></div>
+      <i class="fa-solid fa-house"></i>
+
+      <a class="list-hvr">Shows</a>
+
+      <a>Movies</a>
+      <a>New & Hot <i class="fa-solid fa-fire"></i></a>
+      <a>DistroTV</a>
+      <select>
+        <option value="text">Other</option>
+      </select>
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <div><i class="fa-solid fa-circle-play"></i>UPGRADE TO MIX GOLD</div>
+      <i class="fa-solid fa-bell"></i>
+      <a>Login</a>
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div id="video-container">
+      <img class="opp" src="img/op.jpg">
+    </div>
+
+    <div id="video-cont">
+      <div id="op">
+        <h1 >ONE PIECE</h1>
+      </div>
+
+      <div id="lori">
+        <h4>Hindi | Action, Crime, Thriller</h4>
+        <p id="oph">
+          One Piece has received praise for its storytelling, world-building, art, characterization, and humor.
+        </p>
+      </div>
+    </div>
+
+    <div id="btn">
+      <button id="btn1">
+        <i class="fa-solid fa-play"></i>
+        <h2><a href="https://aniwatchtv.to/one-piece-100">Play</a></h2>
+      </button>
+      <button id="btn2">More Info</button>
+      <button id="btn3">
+        <i class="fa-solid fa-plus"></i>
+        <h3>Add to My List</h3>
+      </button>
+      <button id="btn4"><i class="fa-solid fa-angle-left"></i></button>
+      <button id="btn4"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <br />
+    <h2 id="trnd">Trending In Movies</h2><p id="view-all1"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src=" https://qqcdnpictest.mxplay.com/pic/7097c73355eb2efe1be7a3d5a5f86b1b/en/2x3/320x480/30c7334e93bea584b4e2cda4491b3084_1280x1920.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/648f3d767af97faedf47fbaadabd4663/en/16x9/320x180/test_pic1704296581128.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/8586b3ca3c443140f9a9fd821fdc80a6/en/2x3/320x480/80de745979b248c95d0d1ea611285d76_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/56924d08b0d8b86b43cd68c080279088/en/2x3/320x480/c2fb1ba7a2fcce2d08d6dedf3db1168b_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/2d6aadd4e87a21dc5f1e366c77e948b8/en/2x3/320x480/ff6d73c369b671040d61a9d11dfe8724_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/0bfdc43ccfa8abddf01a4ff3f181bf40/en/2x3/320x480/2862f146f7621d776daf5b7d2a9c0269_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/671b5c2dee524748ca17cf3956ac301e/en/2x3/320x480/6e239949708d5a2e4a14c718c7517067_1280x1920.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">MX Original Web Shows</h2><p id="view-all2"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/1a9a8ebf62df05e913ce23f67d954e02/en/2x3/320x480/test_pic1699276495902.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/d1924002234d9096126aaee2ff997632/en/2x3/320x480/test_pic1709721270180.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/6cd0bb2e1c321c81e579275efa38ccd2/en/2x3/320x480/test_pic1709725655007.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/775ad3b682fde6a608559a60986b230d/en/2x3/320x480/test_pic1698305827480.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/07fe6b61a6c3dea88f619e8e5f032b74/en/2x3/320x480/test_pic1681049005948.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/0c91e61b9dcb929d93a31db9218e62c3/en/2x3/320x480/test_pic1709878031757_badged_1709878085249.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/ca7a124443044bf3c1f8ea52c8b7f9fc/en/2x3/320x480/test_pic1689833329737.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Trending Shows on MX</h2>
+    <p id="view-all3"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/8f484e1869cc333bce98594fa2da59e4/en/2x3/320x480/test_pic1699952747033_badged_1706519870864.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/c6382211316cb17d1757d82cf9605e4a/en/2x3/320x480/test_pic1666868994951.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/28eb409f965536c2e680ab44ea331324/en/16x9/320x180/test_pic1681127821285.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/afd977c9cdf8a38bb6afbf64b038a256/en/2x3/320x480/test_pic1691655091512.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/d33b68e4cf071fce2e7b95629dc17ebb/hi/2x3/320x480/test_pic1691531816944_badged_1691531820439.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/97b24da0eed5d345066d94ac5834db9c/en/2x3/320x480/test_pic1677049393778.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/c06ebe266f3e7406eb14ab09f3e73fb5/en/2x3/320x480/test_pic1685710183042.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Top 10 Shows This Week</h2><p id="view-all"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/0bf9429fd4eb8c5e99cb65406065afa2/en/16x9/320x180/test_pic1703833235306.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/263122ff620b8e608aedf7269f05d9ae/en/2x3/320x480/test_pic1692357343143.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/f0f5ccf60c33ab8b2646601342d48482/en/2x3/320x480/test_pic1705044440265.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/20f66a7c400b3f4fe45480f3151f2b0c/en/2x3/320x480/test_pic1679376325087.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/100966038328fc78b743d35dd836df88/en/2x3/320x480/test_pic1698133583980.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/c6382211316cb17d1757d82cf9605e4a/en/2x3/320x480/test_pic1666868994951.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/55cdb73c506583452edc2866a91cb05f/en/2x3/320x480/test_pic1678958956272.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">MX Top Picks</h2><p id="view-all5"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/303a8a1241268d6baf2f4887d5a24126/en/2x3/320x480/80f8fb034451907202659c8aad9dfcb8_1280x1920.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/00143111259610443f0de155d3356e9d/en/2x3/320x480/73ab30784cc7794b11a0e4c6ffc7d02d_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/1d529ab75018ae32777f1e9c06fac87a/en/2x3/320x480/a75254744531d0b6683ae4344e4cd6aa_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/322d7f883d16bb328ad9652fe71110fc/en/2x3/320x480/3993b3535c6a92e2e4ca05fb22b851ba_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/648f3d767af97faedf47fbaadabd4663/en/2x3/320x480/test_pic1704296590465.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/8586b3ca3c443140f9a9fd821fdc80a6/en/2x3/320x480/80de745979b248c95d0d1ea611285d76_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/f4c23bd90fa691209ec4aedbd94f1395/en/2x3/320x480/69f45a04c902e26dbec3db43905e0d0f_1280x1920.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Top 10 Movies This Week</h2><p id="view-all6"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/0824b942cecba2886443004138a8e860/en/2x3/320x480/b73fa454b62777d915a0f9271b92f1fa_1280x1920.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/548c7467c1bf73078378a08747f65142/en/2x3/320x480/d7070234376719b8013a8d5156e11b2b_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/2ddd6b9421e0cbc695dd3656cf56cdc1/en/2x3/320x480/6afa855912c286ecd098a69e4d078e38_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/d256d61658e94704baa0310dcc3ca314/en/2x3/320x480/22ebbb19fe0ae60cb7b3a117e4c2abd4_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/d31c740a33b02cf697568603cac4f8e0/en/2x3/320x480/ecd8c530b4117641521955f41fc75e10_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/c24d217b0932619c41f2bc45e48f60db/en/2x3/320x480/f1a257a63b18c6681847613743bbcdc4_1280x1920.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/1ea0d65654e7f01e1fb6046b7de808fe/en/2x3/320x480/1d494f48ce77bb6a6abe70f59ed63ad4_1280x1920.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Melody Show</h2><p id="view-all7"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/1a9a8ebf62df05e913ce23f67d954e02/en/2x3/320x480/test_pic1699276495902.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/d1924002234d9096126aaee2ff997632/en/2x3/320x480/test_pic1709721270180.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/c6382211316cb17d1757d82cf9605e4a/en/2x3/320x480/test_pic1666868994951.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/e69a7048e1378bd396baf3defc64f393/en/2x3/320x480/test_pic1699333454376_badged_1700029414228.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/775ad3b682fde6a608559a60986b230d/en/2x3/320x480/test_pic1698305827480.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/230165e127083a4087ddbbe195e2c170/en/2x3/320x480/test_pic1696859443614.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/f0f5ccf60c33ab8b2646601342d48482/en/2x3/320x480/test_pic1705044440265.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Top Korean Shows</h2><p id="view-all8"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/f0f5ccf60c33ab8b2646601342d48482/en/2x3/320x480/test_pic1705044440265.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/df86d0cce096205ebbee7c71fa576c03/en/2x3/320x480/test_pic1707985303267.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/23baada0762c87be44125acdb97615b7/en/2x3/320x480/test_pic1691654966794.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/55cdb73c506583452edc2866a91cb05f/en/2x3/320x480/test_pic1678958956272.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/20f66a7c400b3f4fe45480f3151f2b0c/en/2x3/320x480/test_pic1679376325087.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/0bf9429fd4eb8c5e99cb65406065afa2/en/2x3/320x480/test_pic1703833245048.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/100966038328fc78b743d35dd836df88/en/2x3/320x480/test_pic1698133583980.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Best in Punjab</h2><p id="view-all9"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/e02823bfdbf85f8b271b88b07a2e1c02/en/2x3/320x480/test_pic1686810773079.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/178d2f6a3f37b3907558d09c3a81604e/en/2x3/320x480/test_pic1666779105608.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/ae97c5d034a054476ba82865e7cb18e7/en/2x3/320x480/test_pic1693378572407.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/efe7f2dfee6ede955532daf91a71b195/en/2x3/320x480/test_pic1654579894684.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/8820216ac8cdf766a74506fddbdedeb2/en/2x3/320x480/test_pic1665566487010.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/3aa27bdd56ae341e4d8846a56c2d016a/en/2x3/320x480/test_pic1704891498218.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/d1924002234d9096126aaee2ff997632/en/2x3/320x480/test_pic1709721270180.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Top Turkish Shows</h2><p id="view-all10"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/8f484e1869cc333bce98594fa2da59e4/en/2x3/320x480/test_pic1699952747033_badged_1706519870864.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/50ad9260a0b79fd478bb60322e003985/en/2x3/320x480/test_pic1667719190747.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/8c042e67dbcb727a80953d0733519c95/en/2x3/320x480/test_pic1666776202522.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/2536382b01691eca018a8b2afe8c62f1/en/2x3/320x480/test_pic1677829812582.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/caa6dafb8483aa8aede9379999fd00cf/en/2x3/320x480/test_pic1683033744944.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/30aae090ca5bb9283858050550fb68b6/hi/2x3/320x480/test_pic1667213835836_badged_1667213846595.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/db38e8c6cccd16af92926fd37e0b7a89/en/2x3/320x480/test_pic1704271402409_badged_1705499074619.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Queens of Cinema</h2><p id="view-all11"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/upload/test_pic1709649726711.png"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/upload/test_pic1709649776049.png"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/upload/test_pic1709649732193.png"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/upload/test_pic1709649737991.png"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/upload/test_pic1709649744677.png"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/upload/test_pic1709649750036.png"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/upload/test_pic1709649755439.png"
+        />
+      </div>
+    </div>
+    <br />
+    <h2 id="trnd">Movie Genres</h2><p id="view-all12"  class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main2">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/b3dad5234fdfff43dbc4b4e487d8b6b0/customized/16x9/210x118/test_pic1685078624891.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/b3dad5234fdfff43dbc4b4e487d8b6b0/customized/16x9/210x118/test_pic1685078631145.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/b3dad5234fdfff43dbc4b4e487d8b6b0/customized/16x9/210x118/test_pic1685078638024.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/b3dad5234fdfff43dbc4b4e487d8b6b0/customized/16x9/210x118/test_pic1685078644424.webp"
+        />
+      </div>
+    </div>
+
+    <br />
+    <h2 id="trnd">Mazedaar Gujarati Movies</h2><p id="view-all13" class="va">View All <i class="fa-solid fa-chevron-right"></i></p>
+
+    <div id="main1">
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/0c29fa528f9aca8860779192d391ec34/en/2x3/320x480/e4f64a016287b162cd01521159572b12_1280x1920.webp"
+        />
+      </div>
+
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/b192dafa624663b121593608cbf9a972/en/2x3/320x480/e1c6fab93fe3d1876fb09cdc19f1ef59_1280x1920_badged_1683715480701.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/becb69aef7528960f6de067ec6214f0e/en/2x3/320x480/test_pic1565355510688.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/f2490bd743f840bb4c340a356fff6a6f/en/2x3/320x480/test_pic1583315735841.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/32d144bd05c65f5faa73d9ba18d67ada/en/2x3/320x480/test_pic1565355639741.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/e21e57d3c1eddfc78553b0886dc60a69/en/2x3/320x480/test_pic1620042036056_badged_1688744757283.webp"
+        />
+      </div>
+      <div>
+        <img
+          id="imgg"
+          src="https://qqcdnpictest.mxplay.com/pic/adf8760c0171ad2715c839862b41aeff/en/2x3/320x480/test_pic1565355411058.webp"
+        />
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <!-- footer -->
+    <div id="foot1">
+      <div>
+        <h3 id="paa">Trending</h3>
+        <p id="paaa">
+          Matsya Kaand<br />
+          Indori Ishq
+        </p>
+      </div>
+
+      <div>
+        <h3 id="paa">Movies by Language</h3>
+        <p id="paaa">
+          Hindi Movies
+          <br />
+          Punjabi Movies
+        </p>
+      </div>
+
+      <div>
+        <h3 id="paa">Songs by Genre</h3>
+        <p id="paaa">
+          Melody Songs
+          <br />
+          Pop Songs
+        </p>
+      </div>
+
+      <div>
+        <h3 id="paa">Movies by Genre</h3>
+        <p id="paaa">
+          Crime Movies
+          <br />
+          Action Movies
+        </p>
+      </div>
+
+      <div>
+        <h3 id="paa">Popular Actors</h3>
+        <p id="paaa">
+          Allu Arjun Movies
+          <br />
+          Rashmika Mandanna
+        </p>
+      </div>
+
+      <div>
+        <h3 id="paa">International Shows</h3>
+        <p id="paaa">
+          My Girlfriend Is An Alien
+          <br />
+          The Promise
+        </p>
+      <p id="expnd2">Expand All <i class="fa-solid fa-chevron-down"></i></p>
+
+
+      </div>
+      
+    </div>
+    
+    <br /><br />
+
+    <div id="foot2">
+      <div>
+        <h3 id="paa">
+          Watch the Latest Movies in Hindi, Tamil, Telugu and Kannada Online on
+          MX Player Online
+        </h3>
+        <p id="paaa">
+          If you are looking for the latest movies, most popular....
+        </p>
+      </div>
+
+      <div>
+        <h3 id="paa">
+          Stream News Live TV Channels, New Released Web Series for Free Online
+          on MX Player
+        </h3>
+        
+        
+      </div>
+
+      <div>
+        <h3 id="paa">
+          Catch unlimited Entertainment with Daily TV Show Episodes and New Web
+          Shows Online
+        </h3>
+        <p id="paaa">If you miss an episode of your favourite TV show, do...</p>
+      <p id="expnd">Expand All <i class="fa-solid fa-chevron-down"></i></p>
+
+      </div>
+
+    </div>
+
+    <div id="foot3">
+      
+      <div id="logo-div">
+
+        <div id="logo">
+          <i class="fa-solid fa-play"></i><h1>MX</h1><h2>PLAYER</h2> 
+        </div>
+
+        <div id="text">
+          <p>
+            MX Player is your one-stop destination for all your entertainment
+            such as latest movies, most popular web shows, Live TV channels,
+            newly released songs etc
+          </p>
+        </div>
+
+        <div id="icons">
+          <h5>Follow us for update <i id="icc" class="fa-brands fa-facebook"></i> <i id="icc" class="fa-brands fa-twitter"></i><i id="icc" class="fa-brands fa-youtube"></i><i id="icc" class="fa-brands fa-linkedin"></i><i id="icc" class="fa-brands fa-instagram"></i></h5>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+      <div id="lis1" class="liss">
+        <h3>Company</h3>
+        <ul>
+<li>About Us</li>
+<li>Careers</li>
+<li>Advertise With Us</li>
+<li>Contact Us</li>
+<li>FAQ</li>
+
+
+        </ul>
+      </div>
+
+
+
+      <div id="lis2"class="liss" >
+
+        <h3>Legal</h3>
+        <ul>
+<li>Download Apps</li>
+<li>Privacy Policy</li>
+<li>Terms of Services</li>
+<li>Content Complaints</li>
+
+
+        </ul>
+</div>
+
+      <div id="lis3" class="liss">
+
+        <h3>Install our Mobile App for Best Experience</h3>
+        <ul>
+<li>Open camera or any QR scanner</li>
+<li>app on your mobile</li>
+<li>Scan this QR code and you’ll</li>
+<li>prompt a download link</li>
+<li id="brands">App Available on  <i  class="fa-brands fa-google-play"></i><i class="fa-brands fa-apple"></i></li>
+
+
+        </ul>
+
+
+      </div>
+   
+      
+      
+
+
+      <div id="lis4">
+<p>Copyright © 2022 MX Media & Entertainment. All rights reserved</p>
+<div id="lis4-child">
+  <p>Checkout Other Apps</p>
+  <h5 id="color"><i id="color" class="fa-solid fa-play"></i>MX </h5> <p id="color">ShareKaro</p>
+  <h5> <i class="fa-solid fa-ghost"></i>MX </h5> <p>live</p>
+
+  
+
+</div>
+
+
+   </div>
+
+</div>
+
+
+
+    <ol id="menu">
+      <li>item-1</li>
+      <li>item-2</li>
+      <li>item-3</li>
+      <li>item-4</li>
+      <li>item-4</li>
+
+
+    <ol>
+
+   
+   
+   
+     
+   
+   
+      
+  </body>
+</html>
